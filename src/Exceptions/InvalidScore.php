@@ -1,6 +1,7 @@
 <?php
 
 namespace Laraveles\Exceptions;
+
 // namespace App\Exceptions;
 
 use Exception;
@@ -13,7 +14,7 @@ class InvalidScore extends Exception
             trans('rating.InvalidScore', [
                 'from' => $this->from,
                 'to' => $this->to,
-            ])
+            ]),
         ]);
     }
 }

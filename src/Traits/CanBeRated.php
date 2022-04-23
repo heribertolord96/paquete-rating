@@ -2,13 +2,11 @@
 
 namespace Laraveles\Traits;
 
-use Laraveles\Models\Rating;
-
 trait CanBeRated
 {
     public function qualifiers(string $model = null)
     {
-        $modelClass = $model ? (new $model)->getMorphClass() : $this->getMorphClass();
+        $modelClass = $model ? (new $model())->getMorphClass() : $this->getMorphClass();
 
         return $this->morphToMany($modelClass, 'rateable', 'ratings', 'rateable_id', 'qualifier_id')
             ->withPivot('qualifier_type', 'score')
